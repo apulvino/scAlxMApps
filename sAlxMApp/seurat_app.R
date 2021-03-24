@@ -18,8 +18,11 @@ library(gridExtra)
 #colnames(gene_name) <- "gene_short_name"
 #saveRDS(gene_name, "/Users/anthonypulvino/NicholsLabwork/scAlxWork/sAlxMapp/nichols_combined_markers.rds")
 
-nichols_umap_clusters_diet <- readRDS("nichols_umap_clusters_diet.rds")
-gene_name <- readRDS("WholeGeneList.rds")
+#nichols_umap_clusters_diet <- readRDS("nichols_umap_clusters_diet.rds")
+url_obj <- "https://github.com/apulvino/scAlxMApps/blob/main/sAlxMApp/nichols_umap_clusters_diet.rds?raw=true"
+nichols_umap_clusters_diet <- readRDS(url(url_obj, method="libcurl"))
+url_names <- "https://github.com/apulvino/scAlxMApps/blob/main/sAlxMApp/WholeGeneList.rds?raw=true"
+gene_name <- readRDS(url(url_names, method = "libcurl"))
 
 
 #gene_List <- rownames(nichols_dr_seurat@data)
