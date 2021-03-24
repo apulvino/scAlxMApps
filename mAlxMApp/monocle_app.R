@@ -33,11 +33,12 @@ library(shinyWidgets)
 #gene_name <- readRDS("monocle_gene_names.rds")
 
 #Nichols_cds_subset <- readRDS("NicholsFNsubset.rds")
-url <- "https://github.com/apulvino/scAlxMApps/blob/main/mAlxMApp/NicholsFNsubset.rds"
-Nichols_cds_subset <- readRDS(url(url, method="libcurl"))
+url_obj <- "https://github.com/apulvino/scAlxMApps/blob/main/mAlxMApp/NicholsFNsubset.rds?raw=true"
+Nichols_cds_subset <- readRDS(url(url_obj, method="libcurl"))
+
 #gene_name <- readRDS("monocle_gene_names.rds")
-url <- "https://github.com/apulvino/scAlxMApps/blob/main/mAlxMApp/monocle_gene_names.rds"
-gene_name <- readRDS(url(url, method="libcurl"))
+url_names <- "https://github.com/apulvino/scAlxMApps/blob/main/mAlxMApp/monocle_gene_names.rds?raw=true"
+gene_name <- readRDS(url(url_names, method="libcurl"))
 
 
 ui <- fluidPage(
