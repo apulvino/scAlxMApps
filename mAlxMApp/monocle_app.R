@@ -12,7 +12,6 @@ library(BiocManager)
 library(ggplot2)
 library(monocle3)
 #added these libraries after installing the above packages to make sure I have everything I need in running the succeeding code -ATP 
-
 library(Seurat)
 
 
@@ -32,8 +31,13 @@ library(shinyWidgets)
 #monocle_gene_names <- rownames(cds_from_seurat@assays@data$counts)
 #saveRDS(monocle_gene_names, "/Users/anthonypulvino/NicholsLabwork/scAlxWork/mAlxMapp/monocle_gene_names.rds")
 #gene_name <- readRDS("monocle_gene_names.rds")
-Nichols_cds_subset <- readRDS("NicholsFNsubset.rds")
-gene_name <- readRDS("monocle_gene_names.rds")
+
+#Nichols_cds_subset <- readRDS("NicholsFNsubset.rds")
+url <- "https://github.com/apulvino/scAlxMApps/blob/main/mAlxMApp/NicholsFNsubset.rds"
+Nichols_cds_subset <- readRDS(url(url, method="libcurl"))
+#gene_name <- readRDS("monocle_gene_names.rds")
+url <- "https://github.com/apulvino/scAlxMApps/blob/main/mAlxMApp/monocle_gene_names.rds"
+gene_name <- readRDS(url(url, method="libcurl"))
 
 
 ui <- fluidPage(
