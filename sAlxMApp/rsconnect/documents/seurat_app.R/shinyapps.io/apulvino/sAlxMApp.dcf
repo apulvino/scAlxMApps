@@ -1,0 +1,12 @@
+name: sAlxMApp
+title: sAlxMApp
+username:
+account: apulvino
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 2864031
+bundleId: 4402308
+url: https://apulvino.shinyapps.io/sAlxMapp/
+when: 1616878576.3017
+asMultiple: FALSE
+asStatic: FALSE

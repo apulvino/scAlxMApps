@@ -1,0 +1,12 @@
+name: mAlxMApp
+title: mAlxMApp
+username:
+account: apulvino
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 2864345
+bundleId: 4399772
+url: https://apulvino.shinyapps.io/mAlxMapp/
+when: 1616799248.8725
+asMultiple: FALSE
+asStatic: FALSE

@@ -1,5 +1,6 @@
 
 library(shiny)
+#install.packages("Seurat")
 library(Seurat)
 library(shinyWidgets)
 library(ggplot2)
@@ -18,12 +19,14 @@ library(gridExtra)
 #colnames(gene_name) <- "gene_short_name"
 #saveRDS(gene_name, "/Users/anthonypulvino/NicholsLabwork/scAlxWork/sAlxMapp/nichols_combined_markers.rds")
 
+#setwd("/Users/anthonypulvino/NicholsLabwork/scAlxMApps/sAlxMApp")
 #nichols_umap_clusters_diet <- readRDS("nichols_umap_clusters_diet.rds")
-url_obj <- "https://github.com/apulvino/scAlxMApps/blob/main/sAlxMApp/nichols_umap_clusters_diet.rds?raw=true"
-nichols_umap_clusters_diet <- readRDS(url(url_obj, method="libcurl"))
-url_names <- "https://github.com/apulvino/scAlxMApps/blob/main/sAlxMApp/WholeGeneList.rds?raw=true"
-gene_name <- readRDS(url(url_names, method = "libcurl"))
+#gene_name <- readRDS("WholeGeneList.rds")
 
+dietUMAPurl <- url("https://github.com/apulvino/scAlxMApps/blob/main/sAlxMApp/nichols_umap_clusters_diet.rds?raw=true")
+nichols_umap_clusters_diet <- readRDS(dietUMAPurl)
+gene_nameURL <- url("https://github.com/apulvino/scAlxMApps/blob/main/sAlxMApp/WholeGeneList.rds?raw=true")
+gene_name <- readRDS(gene_nameURL)
 
 #gene_List <- rownames(nichols_dr_seurat@data)
 #View(gene_List)

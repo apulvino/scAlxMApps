@@ -1,21 +1,19 @@
-
 #library(rsconnect)
-#rsconnect::deployApp('/Users/anthonypulvino/NicholsLabwork/scAlxWork/mAlxMapp')
+#rsconnect::deployApp('/Users/anthonypulvino/NicholsLabwork/scAlxMApps/mAlxMApp/')
 
-
-
+#options(repos = c(CRAN = "https://cran.rstudio.com"))
 options(repos = BiocManager::repositories())
+#if (!requireNamespace("BiocManager", quietly = TRUE))
+#  install.packages("BiocManager")
+#BiocManager::install()
 library(BiocManager)
-
-
-
+#BiocManager::install("BiocNeighbors", update = TRUE)
+library(BiocNeighbors)
 library(ggplot2)
 library(monocle3)
 #added these libraries after installing the above packages to make sure I have everything I need in running the succeeding code -ATP 
-library(Seurat)
-
-
-
+#library(Seurat)
+library(gridExtra)
 library(shiny)
 #install.packages("shinydashboard")
 library(shinydashboard)
@@ -23,7 +21,10 @@ library(data.table)
 #runExample("01_hello")
 #install.packages("shinyWidgets")
 library(shinyWidgets)
-
+#install.packages("Rhdf5lib")
+#library(Rhdf5lib)
+library(hdf5r)
+library(S4Vectors)
 
 #nichols_dr_seurat <- readRDS("/Users/anthonypulvino/NicholsLabwork/scAlxWork/nichols_dr_seurat_2019.rds") 
 #whatever the location of the file download
@@ -31,15 +32,14 @@ library(shinyWidgets)
 #monocle_gene_names <- rownames(cds_from_seurat@assays@data$counts)
 #saveRDS(monocle_gene_names, "/Users/anthonypulvino/NicholsLabwork/scAlxWork/mAlxMapp/monocle_gene_names.rds")
 #gene_name <- readRDS("monocle_gene_names.rds")
-
-#Nichols_cds_subset <- readRDS("NicholsFNsubset.rds")
-url_obj <- "https://github.com/apulvino/scAlxMApps/blob/main/mAlxMApp/NicholsFNsubset.rds?raw=true"
-Nichols_cds_subset <- readRDS(url(url_obj, method="libcurl"))
-
+#setwd("/Users/anthonypulvino/NicholsLabwork/scAlxMApps/mAlxMApp")
+#Nichols_cds_subset <- readRDS("Nichols_cds_subset.rds")
 #gene_name <- readRDS("monocle_gene_names.rds")
-url_names <- "https://github.com/apulvino/scAlxMApps/blob/main/mAlxMApp/monocle_gene_names.rds?raw=true"
-gene_name <- readRDS(url(url_names, method="libcurl"))
 
+FNcds_URL <- url("https://github.com/apulvino/scAlxMApps/blob/main/mAlxMApp/NicholsFNsubset.rds?raw=true")
+Nichols_cds_subset <- readRDS(FNcds_URL)
+gene_nameURL <- url("https://github.com/apulvino/scAlxMApps/blob/main/mAlxMApp/monocle_gene_names.rds?raw=true")
+gene_name <- readRDS(gene_nameURL)
 
 ui <- fluidPage(
   tags$head(includeHTML(("google-analytics.html"))),
@@ -79,15 +79,15 @@ ui <- fluidPage(
 )
 
 server <- function(input, output, session) {
-  
-  
   output$plot_cells <- renderPlot({
-    req(input$gene_name)
+    gene_list <- input$gene_name
+    req(gene_list)
 
     title <- "plot_cells"
     
-    plot_cells(Nichols_cds_subset, genes = input$gene_name, cell_size = 1.5, graph_label_size = 3, group_label_size = 4) + theme(plot.title = element_text(size = 25)
-)
+    plot_cells(Nichols_cds_subset, genes = gene_list, cell_size = 1.5, graph_label_size = 3, group_label_size = 4) + theme(plot.title = element_text(size = 25))
+                  
+
     
   })
   
