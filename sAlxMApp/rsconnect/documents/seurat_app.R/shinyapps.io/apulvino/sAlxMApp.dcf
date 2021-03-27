@@ -5,8 +5,8 @@ account: apulvino
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 2864031
-bundleId: 4402308
+bundleId: 4402450
 url: https://apulvino.shinyapps.io/sAlxMapp/
-when: 1616878576.3017
+when: 1616882131.01017
 asMultiple: FALSE
 asStatic: FALSE

@@ -63,7 +63,8 @@ ui <- fluidPage(
   
   plotOutput("FeaturePlot"),
   
-  tags$p("Visit us @", tags$a(href = "https://www.nicholslab.org/", "Nichols Lab"))
+  tags$p("Visit us @", tags$a(href = "https://www.nicholslab.org/", "Nichols Lab")),
+  tags$p("Code and data on", tags$a(href = "https://github.com/apulvino/scAlxMApps", "GitHub"))
   
 )
 

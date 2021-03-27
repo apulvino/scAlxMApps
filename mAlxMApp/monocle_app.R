@@ -36,7 +36,7 @@ library(S4Vectors)
 #Nichols_cds_subset <- readRDS("Nichols_cds_subset.rds")
 #gene_name <- readRDS("monocle_gene_names.rds")
 
-FNcds_URL <- url("https://github.com/apulvino/scAlxMApps/blob/main/mAlxMApp/NicholsFNsubset.rds?raw=true")
+FNcds_URL <- url("https://github.com/apulvino/scAlxMApps/blob/main/mAlxMApp/Nichols_cds_subset.rds?raw=true")
 Nichols_cds_subset <- readRDS(FNcds_URL)
 gene_nameURL <- url("https://github.com/apulvino/scAlxMApps/blob/main/mAlxMApp/monocle_gene_names.rds?raw=true")
 gene_name <- readRDS(gene_nameURL)
@@ -74,7 +74,8 @@ ui <- fluidPage(
   
   plotOutput("plot_cells"),
   
-  tags$p("Visit us @", tags$a(href = "https://www.nicholslab.org/", "Nichols Lab"))
+  tags$p("Visit us @", tags$a(href = "https://www.nicholslab.org/", "Nichols Lab")),
+  tags$p("Code and data on", tags$a(href = "https://github.com/apulvino/scAlxMApps", "GitHub"))
   
 )
 
