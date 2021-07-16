@@ -1,3 +1,5 @@
+**Note: ** The 'Main Code' file only contains code generated to make the in-manuscript figures and supplemental figures.
+
 # scAlxMApps
 
 Both of these apps provide an interactive environment for engaging feature plots from Seurat (the "Seurat app") and similar feature maps from analyses using monocle3 (the "monocle3 app").
