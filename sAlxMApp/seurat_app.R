@@ -33,6 +33,15 @@ gene_name <- readRDS(gene_nameURL)
 
 ui <- fluidPage(
   tags$head(includeHTML(("google-analytics.html"))),
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EGDVC7YT5J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EGDVC7YT5J');
+</script>
   
   titlePanel("Zebrafish NCC FeaturePlot Generator (from Seurat analysis)"),
   
