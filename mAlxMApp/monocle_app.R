@@ -44,11 +44,26 @@ gene_name <- readRDS(gene_nameURL)
 ui <- fluidPage(
   tags$head(includeHTML(("google-analytics.html"))),
   
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PKTJRJS81W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PKTJRJS81W');
+</script>
+  
   titlePanel("Frontonasal Feature Map Generator (from monocle3 analysis)"),
   
   
     #Precursor cartilage and bone cells are required to move to specific locations over the course of craniofacial development in vertebrates. 
-    #These 'precursors' in question, cranial neural crest cells (NCCs), arrive at their final destinations in the skeleton of the head to specify unique cell types.
+    #These 'precursors' in question, cranial neural crest cells (NCCs), arrive at their final destinations in the skeleton of the 
+  
+  
+  
+  
+  to specify unique cell types.
     #One of these specialized cell types, frontonasal cells, are represented in the feature maps you can generate below.
   
     #Using the Monocle3 software, we were able to chart a lineage hierarchy across our frontonasal cells. Here, black nodes represent an undifferentiated
