@@ -42,7 +42,7 @@ gene_name <- readRDS(gene_nameURL)
 #gene_List <- rownames(nichols_dr_seurat@data)
 #View(gene_List)
 
-ui <- fluidPage(
+ui <- fluidPage( 
   
   tags$head(includeHTML(("google-analytics.html"))),
   <!-- Google tag (gtag.js) -->
@@ -54,9 +54,9 @@ ui <- fluidPage(
 
   gtag('config', 'G-EGDVC7YT5J');
 </script>
+
   tags$h2("My secure application"),
-  verbatimTextOutput("auth_output")
-  
+  verbatimTextOutput("auth_output"),
   
   titlePanel("Zebrafish NCC FeaturePlot Generator (from Seurat analysis)"),
   
@@ -91,20 +91,20 @@ ui <- fluidPage(
   tags$p("Code and data on", tags$a(href = "https://github.com/apulvino/scAlxMApps", "GitHub"))
   
 )
+
 # Wrap your UI with secure_app
 ui <- secure_app(ui)
+
 server <- function(input, output, session) {
-  # call the server part
-  # check_credentials returns a function to authenticate users
-  res_auth <- secure_server(
-    check_credentials = check_credentials(credentials)
-  )
+    # call the server part
+    # check_credentials returns a function to authenticate users
+    res_auth <- secure_server(
+      check_credentials = check_credentials(credentials)
+    )
   
-  output$auth_output <- renderPrint({
-    reactiveValuesToList(res_auth)
-  })
-  
-  # your classic server logic
+    output$auth_output <- renderPrint({
+      reactiveValuesToList(res_auth)
+    })
   
 
     output$FeaturePlot <- renderPlot({
