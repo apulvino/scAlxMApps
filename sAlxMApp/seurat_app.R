@@ -56,10 +56,8 @@ ui <- fluidPage(
 </script>
   tags$h2("My secure application"),
   verbatimTextOutput("auth_output")
-  )
-
-# Wrap your UI with secure_app
-ui <- secure_app(ui)
+  
+  
   titlePanel("Zebrafish NCC FeaturePlot Generator (from Seurat analysis)"),
   
     #Precursor cartilage and bone cells are required to move to specific locations over the course of craniofacial development in vertebrates. 
@@ -93,8 +91,20 @@ ui <- secure_app(ui)
   tags$p("Code and data on", tags$a(href = "https://github.com/apulvino/scAlxMApps", "GitHub"))
   
 )
-
+# Wrap your UI with secure_app
+ui <- secure_app(ui)
 server <- function(input, output, session) {
+  # call the server part
+  # check_credentials returns a function to authenticate users
+  res_auth <- secure_server(
+    check_credentials = check_credentials(credentials)
+  )
+  
+  output$auth_output <- renderPrint({
+    reactiveValuesToList(res_auth)
+  })
+  
+  # your classic server logic
   
 
     output$FeaturePlot <- renderPlot({
