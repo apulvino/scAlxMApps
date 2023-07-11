@@ -1,4 +1,5 @@
-
+install.packages("shinymanager")
+library(shinymanager)
 library(shiny)
 #install.packages("Seurat")
 library(Seurat)
@@ -6,6 +7,16 @@ library(shinyWidgets)
 library(ggplot2)
 library(gridExtra)
 
+credentials <- data.frame(
+  user = c("shiny", "shinymanager"), # mandatory
+  password = c("azerty", "12345"), # mandatory
+  start = c("2019-04-15"), # optinal (all others)
+  expire = c(NA, "2019-12-31"),
+  admin = c(FALSE, TRUE),
+  comment = "Simple and secure authentification mechanism 
+  for single ‘Shiny’ applications.",
+  stringsAsFactors = FALSE
+)
 
 #gene_name <- read.csv("/Users/anthonypulvino/NicholsLabwork/scAlxWork/sAlxMapp/nichols_combined_markers.csv")
 #gene_name <- gene_name[,2]
@@ -32,6 +43,7 @@ gene_name <- readRDS(gene_nameURL)
 #View(gene_List)
 
 ui <- fluidPage(
+  
   tags$head(includeHTML(("google-analytics.html"))),
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EGDVC7YT5J"></script>
@@ -42,7 +54,12 @@ ui <- fluidPage(
 
   gtag('config', 'G-EGDVC7YT5J');
 </script>
-  
+  tags$h2("My secure application"),
+  verbatimTextOutput("auth_output")
+  )
+
+# Wrap your UI with secure_app
+ui <- secure_app(ui)
   titlePanel("Zebrafish NCC FeaturePlot Generator (from Seurat analysis)"),
   
     #Precursor cartilage and bone cells are required to move to specific locations over the course of craniofacial development in vertebrates. 
