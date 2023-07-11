@@ -89,8 +89,7 @@ ui <- fluidPage(
   
   tags$p("Visit us @", tags$a(href = "https://www.nicholslab.org/", "Nichols Lab")),
   tags$p("Code and data on", tags$a(href = "https://github.com/apulvino/scAlxMApps", "GitHub"))
-  
-)
+  )
 
 # Wrap your UI with secure_app
 ui <- secure_app(ui)
