@@ -42,7 +42,10 @@ gene_name <- readRDS(gene_nameURL)
 #gene_List <- rownames(nichols_dr_seurat@data)
 #View(gene_List)
 
-ui <- fluidPage( 
+ui <- fluidPage(
+  
+  tags$h2("My secure application"),
+  verbatimTextOutput("auth_output"),
   
   tags$head(includeHTML(("google-analytics.html"))),
   <!-- Google tag (gtag.js) -->
@@ -54,9 +57,6 @@ ui <- fluidPage(
 
   gtag('config', 'G-EGDVC7YT5J');
 </script>
-
-  tags$h2("My secure application"),
-  verbatimTextOutput("auth_output"),
   
   titlePanel("Zebrafish NCC FeaturePlot Generator (from Seurat analysis)"),
   
