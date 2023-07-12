@@ -4,6 +4,9 @@ library(Seurat)
 library(shinyWidgets)
 library(ggplot2)
 library(gridExtra)
+library(shiny)
+remotes::install_github("datastorm-open/shinymanager")
+library(shinymanager)
 
 
 # define some credentials
@@ -22,9 +25,6 @@ dietUMAPurl <- url("https://github.com/apulvino/scAlxMApps/blob/main/sAlxMApp/ni
 nichols_umap_clusters_diet <- readRDS(dietUMAPurl)
 gene_nameURL <- url("https://github.com/apulvino/scAlxMApps/blob/main/sAlxMApp/WholeGeneList.rds?raw=true")
 gene_name <- readRDS(gene_nameURL)
-
-library(shiny)
-library(shinymanager)
 
 ui <- fluidPage(
     tags$h2("Thank you for authenticating"),
