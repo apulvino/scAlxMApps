@@ -7,6 +7,7 @@ library(Seurat)
 library(shinyWidgets)
 #remotes::install_github("datastorm-open/shinymanager")
 library(shinymanager)
+library(rsconnect)
 
 
 # define some credentials
