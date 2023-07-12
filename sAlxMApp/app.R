@@ -1,11 +1,11 @@
+library(ggplot2)
+library(gridExtra)
+library(shiny)
 library(shiny)
 #install.packages("Seurat")
 library(Seurat)
 library(shinyWidgets)
-library(ggplot2)
-library(gridExtra)
-library(shiny)
-remotes::install_github("datastorm-open/shinymanager")
+#remotes::install_github("datastorm-open/shinymanager")
 library(shinymanager)
 
 
