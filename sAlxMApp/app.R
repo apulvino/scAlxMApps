@@ -22,10 +22,12 @@ credentials <- data.frame(
   stringsAsFactors = FALSE
 )
 
-dietUMAPurl <- url("https://github.com/apulvino/scAlxMApps/blob/main/sAlxMApp/nichols_umap_clusters_diet.rds?raw=true")
-nichols_umap_clusters_diet <- readRDS(dietUMAPurl)
 gene_nameURL <- url("https://github.com/apulvino/scAlxMApps/blob/main/sAlxMApp/WholeGeneList.rds?raw=true")
+dietUMAPurl <- url("https://github.com/apulvino/scAlxMApps/blob/main/sAlxMApp/nichols_umap_clusters_diet.rds?raw=true")
 gene_name <- readRDS(gene_nameURL)
+nichols_umap_clusters_diet <- readRDS(dietUMAPurl)
+
+
 
 ui <- fluidPage(
     tags$h2("Thank you for authenticating"),
