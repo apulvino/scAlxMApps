@@ -9,19 +9,6 @@ library(shinyWidgets)
 library(shinymanager)
 library(rsconnect)
 
-
-# define some credentials
-credentials <- data.frame(
-  user = c("apulvino", "shinymanager"), # mandatory
-  password = c("icanforgive", "itsmyfault"), # mandatory
-  start = c("2019-04-15"), # optinal (all others)
-  expire = c(NA, "2019-12-31"),
-  admin = c(FALSE, TRUE),
-  comment = "Simple and secure authentification mechanism 
-  for single ‘Shiny’ applications.",
-  stringsAsFactors = FALSE
-)
-
 gene_nameURL <- url("https://github.com/apulvino/scAlxMApps/blob/main/sAlxMApp/WholeGeneList.rds?raw=true")
 dietUMAPurl <- url("https://github.com/apulvino/scAlxMApps/blob/main/sAlxMApp/nichols_umap_clusters_diet.rds?raw=true")
 gene_name <- readRDS(gene_nameURL)
